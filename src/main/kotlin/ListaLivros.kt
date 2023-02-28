@@ -1,34 +1,34 @@
 import model.Livro
 
-fun main() {
-    val listaLivros: MutableList<Livro> = mutableListOf(
-        Livro(
-            titulo = "Grande Sertão: Veredas",
-            autor = "João Guimarães Rosa",
-            anoPublicacao = 1956
-        ),
+val listaLivros: MutableList<Livro> = mutableListOf(
+    Livro(
+        titulo = "Grande Sertão: Veredas",
+        autor = "João Guimarães Rosa",
+        anoPublicacao = 1956
+    ),
 
-        Livro(
-            titulo = "Minha vida de menina",
-            autor = "Helena Morley",
-            anoPublicacao = 1942,
-            editora = "Editora A"
-        ),
+    Livro(
+        titulo = "Minha vida de menina",
+        autor = "Helena Morley",
+        anoPublicacao = 1942,
+        editora = "Editora A"
+    ),
 
-        Livro(
-            titulo = "Memorias Postumas de Bras Cubas",
-            autor = "Machado de Assis",
-            anoPublicacao = 1881
-        ),
+    Livro(
+        titulo = "Memorias Postumas de Bras Cubas",
+        autor = "Machado de Assis",
+        anoPublicacao = 1881
+    ),
 
-        Livro(
-            titulo = "Iracema",
-            autor = "José de Alencar",
-            anoPublicacao = 1865,
-            editora = "Editora B"
-        )
+    Livro(
+        titulo = "Iracema",
+        autor = "José de Alencar",
+        anoPublicacao = 1865,
+        editora = "Editora B"
     )
+)
 
+fun main() {
     listaLivros.add(
         Livro(
             titulo = "Sagarana",
@@ -49,6 +49,8 @@ fun main() {
 
 }
 
-fun List<Livro>.imprimeComMarcadores(): String = this.joinToString("\n") {
+fun List<Livro?>.imprimeComMarcadores(): String = this
+    .filterNotNull()
+    .joinToString("\n") {
     " - ${it.titulo} de ${it.autor}"
 }
