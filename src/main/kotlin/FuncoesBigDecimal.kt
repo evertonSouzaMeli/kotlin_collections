@@ -6,21 +6,18 @@ fun calculaAumentoRelativo(salario: BigDecimal): BigDecimal? = when {
     else -> (salario * BigDecimal(1.1)).setScale(2, HALF_EVEN)
 }
 
-fun List<BigDecimal?>.somatoria(): BigDecimal {
-    return this.filterNotNull()
-        .reduce { acumulador, valor -> valor + acumulador }
-}
+fun List<BigDecimal?>.somatoria(): BigDecimal = this.filterNotNull()
+    .reduce { acumulador, valor -> valor + acumulador }
 
-fun bigDecimalArrayOf(vararg values: String): Array<BigDecimal> {
-    return values.map { it.toBigDecimal() }.toTypedArray()
-}
 
-fun List<BigDecimal?>.media(): BigDecimal {
-    return this.filterNotNull()
-        .let {
-            when {
-                this.isEmpty() -> BigDecimal.ZERO
-                else -> this.somatoria() / this.size.toBigDecimal()
+fun bigDecimalArrayOf(vararg values: String): Array<BigDecimal> =
+    values.map { it.toBigDecimal() }.toTypedArray()
+
+
+fun List<BigDecimal?>.media(): BigDecimal = this.filterNotNull()
+    .let {
+        when {
+            this.isEmpty() -> BigDecimal.ZERO
+            else -> this.somatoria() / this.size.toBigDecimal()
         }
     }
-}
