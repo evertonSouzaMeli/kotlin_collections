@@ -27,5 +27,4 @@ fun main(){
     pedidos.plusAssign(mapOf(2 to 9.0))
     pedidos.putAll(listOf(6 to 10.0, 8 to 20.0))
     println(pedidos)
-
 }
